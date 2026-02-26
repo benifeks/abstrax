@@ -1,0 +1,33 @@
+@use "functions" as *;
+@use "themes" as *;
+
+$color-bg: var(bg);
+$color-text: var(text);
+$color-primary: var(primary);
+$color-primary-dark: var(primary-dark);
+$color-accent: var(accent);
+$color-accent-dark: var(accent-dark);
+$color-gray-light: var(gray-light);
+$color-gray-normal: var(gray-normal);
+$color-error: var(error);
+$color-success: var(success);
+$color-shadow-color: var(shadow-color);
+$color-warning: #ff3e00;
+
+$font-xs: rem(12);
+$font-sm: rem(14);
+$font-md: rem(16);
+$font-lg: rem(20);
+$font-xl: rem(24);
+$font-2xl: rem(32);
+
+$padding-xs: rem(4);
+$padding-sm: rem(8);
+$padding-md: rem(16);
+
+$border-radius: rem(5);
+
+$breakpoint-sm: rem(480);
+$breakpoint-md: rem(768);
+$breakpoint-lg: rem(1024);
+$breakpoint-xl: rem(1280);

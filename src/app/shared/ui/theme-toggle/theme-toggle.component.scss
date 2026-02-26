@@ -1,0 +1,14 @@
+@use "variables" as *;
+
+.theme-toggle {
+  color: $color-accent;
+}
+
+.theme-toggle__btn {
+  cursor: pointer;
+  border-radius: $border-radius;
+}
+
+.theme-toggle__btn--text {
+  color: $color-accent;
+}

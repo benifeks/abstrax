@@ -1,0 +1,43 @@
+@use "sass:color";
+
+.light-theme {
+  --bg: #ffffff;
+  --text: #1a1a1a;
+  --primary: #3b82f6;
+  --primary-dark: #1e40af;
+  --accent: #f59e0b;
+  --accent-dark: #b45309;
+  --gray-light: #f3f4f6;
+  --gray-normal: #9ca3af;
+  --error: #dc2626;
+  --success: #16a34a;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+.dark-theme {
+  --bg: #121212;
+  --text: #e5e7eb;
+  --primary: #2563eb;
+  --primary-dark: #1e3a8a;
+  --accent: #fbbf24;
+  --accent-dark: #b45309;
+  --gray-light: #374151;
+  --gray-normal: #9ca3af;
+  --error: #f87171;
+  --success: #4ade80;
+  --shadow-color: rgba(0, 0, 0, 0.5);
+}
+
+.synth-theme {
+  --bg: #f0f0f3;
+  --text: #2e2e38;
+  --primary: #5c6bc0;
+  --primary-dark: #3949ab;
+  --accent: #81d4fa;
+  --accent-dark: #0288d1;
+  --gray-light: #d1d9e6;
+  --gray-normal: #7b8a9e;
+  --error: #ef5350;
+  --success: #66bb6a;
+  --shadow-color: rgba(0, 0, 0, 0.2);
+}

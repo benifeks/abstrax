@@ -1,0 +1,11 @@
+@use "sass:math";
+
+// Перевод px → rem
+@function rem($px, $base: 16) {
+  @return math.div($px, $base) * 1rem;
+}
+
+// Обёртка для CSS-переменных
+@function var($name) {
+  @return unquote("var(--#{$name})");
+}
