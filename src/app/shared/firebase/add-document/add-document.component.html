@@ -1,0 +1,24 @@
+<h3>Добавить документ в коллекцию</h3>
+
+<div>
+  <input
+    type="text"
+    placeholder="Collection"
+    [value]="collectionName()"
+    (input)="handleCollectionInput($event)"
+  />
+
+  <input
+    type="text"
+    placeholder="Name"
+    [value]="name()"
+    (input)="handleNameInput($event)"
+  />
+
+  <button
+    (click)="addDocument()"
+    [disabled]="!collectionName() || !name() || !authService.uid()"
+  >
+    Add Document
+  </button>
+</div>
