@@ -1,0 +1,126 @@
+@use "variables" as *;
+
+/* ========================= */
+/* 🌌 Base Background Layer */
+.abstract-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      circle at 20% 30%,
+      color-mix(in srgb, $primary 25%, transparent),
+      transparent 55%
+    ),
+    radial-gradient(
+      circle at 80% 70%,
+      color-mix(in srgb, $accent 25%, transparent),
+      transparent 65%
+    ),
+    $bg;
+
+  transition: background 600ms ease;
+}
+
+/* ========================= */
+/* 🧠 Neural Lines Base */
+.neural-line {
+  stroke: $text;
+  stroke-width: 0.2;
+  stroke-opacity: 0.5;
+  transition:
+    stroke 400ms ease,
+    stroke-opacity 400ms ease,
+    filter 400ms ease;
+}
+
+/* ========================= */
+/* ✨ Stars */
+.star {
+  fill: $text;
+  transition: opacity 400ms ease;
+}
+
+/* ========================= */
+/* ========================= */
+/* LIGHT THEME */
+.light-theme .abstract-bg {
+  background:
+    radial-gradient(
+      circle at 30% 20%,
+      color-mix(in srgb, $primary-dark 20%, transparent),
+      transparent 60%
+    ),
+    radial-gradient(
+      circle at 70% 80%,
+      color-mix(in srgb, $accent 20%, transparent),
+      transparent 65%
+    ),
+    $bg;
+}
+
+.light-theme .neural-line {
+  stroke: $primary-dark;
+  stroke-opacity: 0.35;
+  filter: none;
+}
+
+.light-theme .star {
+  opacity: 0.08;
+}
+
+/* ========================= */
+/* DARK THEME */
+.dark-theme .abstract-bg {
+  background:
+    radial-gradient(
+      circle at 20% 30%,
+      color-mix(in srgb, $primary 30%, transparent),
+      transparent 55%
+    ),
+    radial-gradient(
+      circle at 80% 70%,
+      color-mix(in srgb, $accent 30%, transparent),
+      transparent 65%
+    ),
+    $bg;
+}
+
+.dark-theme .neural-line {
+  stroke: $accent;
+  stroke-opacity: 0.22;
+  filter: drop-shadow(0 0 6px $accent-dark);
+}
+
+.dark-theme .star {
+  opacity: 0.18;
+}
+
+/* ========================= */
+/* SYNTH THEME */
+.synth-theme .abstract-bg {
+  background:
+    radial-gradient(
+      circle at 25% 35%,
+      color-mix(in srgb, $primary 35%, transparent),
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 75% 65%,
+      color-mix(in srgb, $accent 35%, transparent),
+      transparent 60%
+    ),
+    $bg;
+}
+
+.synth-theme .neural-line {
+  stroke: $accent;
+  stroke-opacity: 0.28;
+  filter: drop-shadow(0 0 8px $primary);
+}
+
+.synth-theme .star {
+  opacity: 0.22;
+}

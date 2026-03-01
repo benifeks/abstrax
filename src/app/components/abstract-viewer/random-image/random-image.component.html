@@ -1,0 +1,7 @@
+<div class="random-image">
+  @if (imageUrl()) {
+    <img [src]="imageUrl()" alt="Random abstract" />
+  }
+
+  <button (click)="refresh()" class="button">Получить новую картинку</button>
+</div>

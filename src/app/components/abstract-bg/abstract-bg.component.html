@@ -1,0 +1,20 @@
+<svg class="abstract-bg" width="100%" height="100%">
+  <!-- линии -->
+  <line
+    *ngFor="let l of lines()"
+    class="neural-line"
+    [attr.x1]="l.x1"
+    [attr.y1]="l.y1"
+    [attr.x2]="l.x2"
+    [attr.y2]="l.y2"
+  />
+
+  <!-- звезды -->
+  <circle
+    *ngFor="let s of stars()"
+    class="star"
+    [attr.cx]="s.x"
+    [attr.cy]="s.y"
+    [attr.r]="s.r"
+  />
+</svg>

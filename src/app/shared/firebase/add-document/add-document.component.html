@@ -1,24 +1,28 @@
-<h3>Добавить документ в коллекцию</h3>
+@if (authService.isAdmin()) {
+  <div>
+    <h3>Добавить документ в коллекцию</h3>
 
-<div>
-  <input
-    type="text"
-    placeholder="Collection"
-    [value]="collectionName()"
-    (input)="handleCollectionInput($event)"
-  />
+    <div>
+      <input
+        type="text"
+        placeholder="Collection"
+        [value]="collectionName()"
+        (input)="handleCollectionInput($event)"
+      />
 
-  <input
-    type="text"
-    placeholder="Name"
-    [value]="name()"
-    (input)="handleNameInput($event)"
-  />
+      <input
+        type="text"
+        placeholder="Name"
+        [value]="name()"
+        (input)="handleNameInput($event)"
+      />
 
-  <button
-    (click)="addDocument()"
-    [disabled]="!collectionName() || !name() || !authService.uid()"
-  >
-    Add Document
-  </button>
-</div>
+      <button
+        (click)="addDocument()"
+        [disabled]="!collectionName() || !name() || !authService.uid()"
+      >
+        Add Document
+      </button>
+    </div>
+  </div>
+}

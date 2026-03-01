@@ -1,0 +1,13 @@
+@use "functions" as *;
+@use "variables" as *;
+
+.section {
+  min-height: calc(100vh - #{rem(64)}); // 64 = высота header
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: $space-6 0;
+
+  scroll-margin-top: rem(64); // чтобы не пряталось под fixed header
+}

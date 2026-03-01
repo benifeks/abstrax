@@ -10,7 +10,7 @@ import { FirestoreService } from '../firestore.service';
   styleUrl: './add-document.component.scss',
 })
 export class AddDocumentComponent {
-  firestoreService = inject(FirestoreService);
+  private firestoreService = inject(FirestoreService);
   authService = inject(AuthService);
 
   collectionName = signal('');
