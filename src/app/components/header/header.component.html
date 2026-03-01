@@ -1,2 +1,44 @@
-<p>header works!</p>
-<app-theme-toggle></app-theme-toggle>
+<!-- src/app/components/header/header.component.html -->
+<header class="abstrax-header">
+  <div class="header-left">
+    <a class="logo" routerLink="/">Abstrax</a>
+  </div>
+
+  <nav class="header-center">
+    <a routerLink="/" fragment="auth">auth</a>
+    <a routerLink="/" fragment="add">add</a>
+    <a routerLink="/" fragment="abstract-viewer">abstract-viewer</a>
+    <a routerLink="/" fragment="test-2">test-2</a>
+    <a routerLink="/" fragment="test-3">test-3</a>
+  </nav>
+
+  <div class="header-right">
+    <!-- Соцсети -->
+    <a
+      href="https://t.me/benifeks"
+      target="_blank"
+      aria-label="Telegram"
+      rel="noopener noreferrer"
+    >
+      <svg class="social-icon">
+        <use [attr.href]="spritePath + 'telegram'" />
+      </svg>
+    </a>
+    <a
+      href="https://facebook.com/skurko.sergej.2025/"
+      target="_blank"
+      aria-label="Facebook"
+      rel="noopener noreferrer"
+    >
+      <svg class="social-icon">
+        <use [attr.href]="spritePath + 'facebook'" />
+      </svg>
+    </a>
+
+    <!-- Theme toggle -->
+    <app-theme-toggle></app-theme-toggle>
+
+    <!-- Google Auth -->
+    <app-google-auth-button></app-google-auth-button>
+  </div>
+</header>

@@ -1,5 +1,67 @@
+@use "sass:color";
+
+@use "functions" as *;
 @use "variables" as *;
 
-p {
-  color: $color-accent;
+.abstrax-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 $space-4;
+  height: rem(64);
+  backdrop-filter: blur(rem(12));
+  background: color-mix(in srgb, $bg 80%, transparent);
+  border-bottom: rem(1) solid $surface;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease;
+
+  .logo {
+    font-family: "Neucha", sans-serif;
+    font-size: $font-xl;
+    color: $primary;
+    text-decoration: none;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: $accent;
+      text-shadow: 0 0 rem(4) $accent;
+    }
+  }
+
+  .header-right {
+    display: flex;
+    align-items: center;
+    gap: $space-3;
+
+    .social-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      vertical-align: middle;
+
+      width: rem(32);
+      height: rem(32);
+
+      fill: $primary;
+
+      transition:
+        fill 0.2s ease,
+        transform 0.2s ease;
+
+      &:hover {
+        fill: color-mix(in srgb, $primary 80%, transparent);
+        transform: scale(1.15);
+      }
+
+      &:active {
+        transform: scale(1);
+        fill: $accent;
+      }
+    }
+  }
 }
