@@ -1,0 +1,7 @@
+@if (authService.appUser()) {
+  <button (click)="onLogout()">
+    Выйти ({{ authService.appUser()?.displayName ?? "Google user" }})
+  </button>
+} @else {
+  <button (click)="onLogin()">Войти через Google</button>
+}

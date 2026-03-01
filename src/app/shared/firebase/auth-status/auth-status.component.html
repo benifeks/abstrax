@@ -1,3 +1,11 @@
-@if (authService.uid()) {
+<div class="auth-status">
+  <h3>Auth Status</h3>
+  @if (authService.isAdmin()) {
+    <p>Admin</p>
+  }
+  @if (!authService.isAdmin()) {
+    <p>Not Admin</p>
+  }
   <p>Current UID: {{ authService.uid() }}</p>
-}
+  <app-google-auth-button></app-google-auth-button>
+</div>
