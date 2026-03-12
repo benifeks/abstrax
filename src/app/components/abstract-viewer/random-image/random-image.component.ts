@@ -3,6 +3,7 @@ import { PicsumService } from '../../../shared/api/picsum.service';
 
 @Component({
   selector: 'app-random-image',
+  standalone: true,
   imports: [],
   templateUrl: './random-image.component.html',
   styleUrl: './random-image.component.scss',
