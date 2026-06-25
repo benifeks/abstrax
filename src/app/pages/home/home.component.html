@@ -1,5 +1,3 @@
-<app-abstract-bg></app-abstract-bg>
-
 <section id="auth" class="section">
   <app-auth-status />
 </section>
@@ -8,18 +6,6 @@
   <app-add-document />
 </section>
 
-<section id="abstract-viewer" class="section">
-  <app-abstract-viewer />
-</section>
-
-<!-- ТЕСТОВАЯ СЕКЦИЯ ДЛЯ ПРОКРУТКИ -->
-<section id="scroll-test" class="scroll-test">
-  <h2>Scroll test section</h2>
-
-  @for (i of testItems; track i) {
-    <p>
-      Test content line {{ i }} — нейронный фон должен красиво просвечивать во
-      время прокрутки.
-    </p>
-  }
+<section id="picsum" class="section">
+  <app-picsum-test />
 </section>

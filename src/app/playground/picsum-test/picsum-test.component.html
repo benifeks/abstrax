@@ -1,0 +1,47 @@
+<div class="home-container">
+  <header class="hero-section">
+    <h1>Инженерная Песочница Abstrax</h1>
+    <p>
+      Добро пожаловать в личную лабораторию. Здесь тестируются безумные идеи и
+      современный стек Angular 19.
+    </p>
+  </header>
+
+  <main class="demo-card">
+    <div class="image-wrapper">
+      @if (picsumService.isLoading()) {
+        <div class="spinner-box">
+          <div class="spinner"></div>
+          <p>Сканируем цифровой хаос...</p>
+        </div>
+      } @else if (currentImageUrl()) {
+        <img
+          [src]="currentImageUrl()"
+          alt="Случайная абстракция"
+          class="fade-in"
+        />
+      } @else if (picsumService.error()) {
+        <div class="error-box">
+          <p>❌ {{ picsumService.error() }}</p>
+        </div>
+      }
+    </div>
+
+    <div class="control-panel">
+      <button
+        (click)="loadNextImage()"
+        [disabled]="picsumService.isLoading()"
+        class="btn-trigger"
+      >
+        🎲 Сгенерировать абстракцию
+      </button>
+
+      @if (picsumService.currentId(); as id) {
+        <div class="info-tag">
+          <span class="id-badge">ID: {{ id }}</span>
+          <button class="btn-like">❤️ Сохранить шедевр</button>
+        </div>
+      }
+    </div>
+  </main>
+</div>
