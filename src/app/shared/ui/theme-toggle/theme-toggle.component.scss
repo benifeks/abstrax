@@ -3,5 +3,5 @@
 @use "mixins" as *;
 
 .theme-toggle__btn {
-  @include button($primary);
+  @include button;
 }

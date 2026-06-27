@@ -1,67 +1,114 @@
-@use "sass:color";
-
 @use "functions" as *;
 @use "variables" as *;
 
 .abstrax-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 $space-4;
   height: rem(64);
-  backdrop-filter: blur(rem(12));
-  background: color-mix(in srgb, $bg 80%, transparent);
-  border-bottom: rem(1) solid $surface;
-  position: fixed;
-  top: 0;
   width: 100%;
-  z-index: 1000;
-  transition:
-    background-color 0.2s ease,
-    border-color 0.2s ease;
 
-  .logo {
-    font-family: "Neucha", sans-serif;
-    font-size: $font-xl;
+  .header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+  }
+
+  /* ========================================================================== */
+  /* 🔥 Только то, что управляет интерактивным поведением Stripe               */
+  /* ========================================================================== */
+  .logo,
+  .nav-link,
+  .social-link,
+  .controls button {
     color: $primary;
-    text-decoration: none;
-    transition: color 0.2s ease;
+    fill: $primary;
+    font-weight: 500;
+
+    // Плавное скольжение на кастомных cubic-bezier
+    transition:
+      color $transition-fast,
+      fill $transition-fast,
+      transform $transition-fast,
+      text-shadow $transition-fast;
 
     &:hover {
       color: $accent;
-      text-shadow: 0 0 rem(4) $accent;
+      fill: $accent;
+      transform: translateY(rem(-1));
+    }
+
+    &:active {
+      transform: translateY(0);
     }
   }
 
+  /* ========================================================================== */
+  /* Специфичные стили геометрии                                                */
+  /* ========================================================================== */
+
+  /* 1. Логотип */
+  .logo {
+    font-family: "Neucha", sans-serif;
+    font-size: $font-xl;
+    letter-spacing: 0.05em;
+
+    &:hover {
+      text-shadow: 0 0 rem(8) color-mix(in srgb, $accent 40%, transparent);
+    }
+  }
+
+  /* 2. Центральная навигация */
+  .header-center {
+    display: flex;
+    align-items: center;
+    gap: $space-5;
+
+    .nav-link {
+      font-size: $font-sm;
+      text-transform: lowercase;
+    }
+  }
+
+  /* 3. Правая часть */
   .header-right {
     display: flex;
     align-items: center;
-    gap: $space-3;
+    gap: $space-4;
+
+    .social-links {
+      display: flex;
+      align-items: center;
+      gap: $space-3;
+    }
 
     .social-icon {
-      display: inline-flex;
+      width: rem(20);
+      height: rem(20);
+    }
+
+    .divider {
+      width: rem(1);
+      height: $space-4;
+      background-color: $card-border;
+    }
+
+    .controls {
+      display: flex;
       align-items: center;
-      justify-content: center;
-      vertical-align: middle;
+      gap: $space-4;
 
-      width: rem(32);
-      height: rem(32);
-
-      fill: $primary;
-
-      transition:
-        fill 0.2s ease,
-        transform 0.2s ease;
-
-      &:hover {
-        fill: color-mix(in srgb, $primary 80%, transparent);
-        transform: scale(1.15);
+      button {
+        font-size: $font-sm;
+        text-transform: lowercase;
       }
+    }
+  }
+}
 
-      &:active {
-        transform: scale(1);
-        fill: $accent;
-      }
+/* --- Адаптивность --- */
+@media (max-width: $bp-md) {
+  .abstrax-header {
+    .header-center {
+      display: none;
     }
   }
 }

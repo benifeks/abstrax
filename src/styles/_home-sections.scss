@@ -1,0 +1,104 @@
+// src/app/pages/home/_home-sections.scss
+@use "functions" as *;
+@use "variables" as *;
+
+/* ========================================================================== */
+/* 🏠 Базовый Каркас Секций Главной Страницы                                    */
+/* ========================================================================== */
+.home-section {
+  padding: $space-7 0; // Наш максимальный системный отступ (rem(48))
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative; // База для позиционирования тающих разделителей
+
+  // Элегантное решение проблемы фиксированного хедера:
+  // При скролле по якорной ссылке заголовок секции не залезет под шапку
+  scroll-margin-top: rem(100);
+
+  // Чередование фонов (зебра) для объема интерфейса в светлой теме
+  &:nth-child(even) {
+    background-color: color-mix(in srgb, $surface 30%, transparent);
+  }
+
+  // Мягкая "ниточка"-разделитель, которая плавно растворяется к краям экрана
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%; // Аккуратная линия по центру, а не на весь экран
+    height: rem(1);
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      color-mix(in srgb, $card-border 80%, $text) 50%,
+      transparent 100%
+    );
+    opacity: 0.6;
+  }
+}
+
+/* ========================================================================== */
+/* 📑 Универсальная Структура Заголовков                                       */
+/* ========================================================================== */
+.section-header {
+  margin-bottom: $space-5;
+  padding: 0 $space-4;
+
+  .section-title {
+    font-size: $font-lg;
+    color: $text;
+    margin-bottom: $space-2;
+    letter-spacing: -0.01em;
+    font-weight: 600;
+  }
+
+  .section-desc {
+    font-size: $font-sm;
+    color: $muted;
+    max-width: rem(500);
+    margin: 0 auto;
+    line-height: 1.5;
+  }
+}
+
+/* ========================================================================== */
+/* 💎 Премиальная Кнопка Вызова Оверлеев (Стиль Stripe)                       */
+/* ========================================================================== */
+.section-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: $space-3 $space-5;
+  background-color: transparent;
+  color: $primary;
+  border: rem(1) solid $primary;
+  border-radius: $radius-md;
+  font-size: $font-sm;
+  font-weight: 500;
+  cursor: pointer;
+
+  // Кинематические тайминги и плавные кривые безье из дизайн-системы
+  transition:
+    background-color $transition-fast,
+    color $transition-fast,
+    border-color $transition-fast,
+    transform $transition-fast,
+    box-shadow $transition-fast;
+
+  &:hover {
+    background-color: $accent;
+    border-color: $accent;
+    color: $bg;
+    transform: translateY(rem(-1)); // Фирменное микродвижение вверх
+    box-shadow: 0 rem(4) rem(16) color-mix(in srgb, $accent 20%, transparent);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}

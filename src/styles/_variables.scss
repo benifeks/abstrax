@@ -1,11 +1,11 @@
 @use "functions" as *;
 
-/* ========================= */
-/* 🎨 Semantic Color Tokens */
-/* ========================= */
-
+/* ========================================================================== */
+/* 🎨 Dynamic Color & Surface Tokens                                          */
+/* ========================================================================== */
 $bg: var(bg);
 $text: var(text);
+$muted: var(text-muted);
 
 $primary: var(primary);
 $primary-dark: var(primary-dark);
@@ -13,31 +13,58 @@ $primary-dark: var(primary-dark);
 $accent: var(accent);
 $accent-dark: var(accent-dark);
 
-$surface: var(gray-light);
-$muted: var(gray-normal);
+// Новая идеология поверхностей Stripe
+$card-bg: var(card-bg);
+$card-border: var(card-border);
+$surface: var(surface);
+$gray-light: var(gray-light);
 
 $error: var(error);
 $success: var(success);
-$warning: #ff6b00;
+$warning: #ff9100;
 
-$shadow-color: var(shadow-color);
+/* ========================================================================== */
+/* 🌌 Shadows System (Глубина интерфейса)                                    */
+/* ========================================================================== */
+$shadow-sm: var(shadow-sm);
+$shadow-md: var(shadow-md);
+$shadow-lg: var(shadow-lg);
 
-/* ========================= */
-/* 🔤 Typography Scale */
-/* ========================= */
+/* ========================================================================== */
+/* ⚡ Cinematic Timing & Easing (Секретное оружие Stripe)                  */
+/* ========================================================================== */
+// Кастомные кривые безье, дающие эффект плавного "скольжения" с инерцией
+$ease-out: cubic-bezier(
+  0.16,
+  1,
+  0.3,
+  1
+); // Идеально для наведения (Hover) и открытия
+$ease-in-out: cubic-bezier(
+  0.65,
+  0,
+  0.35,
+  1
+); // Для тяжелых транзишнов (смена темы)
 
+$transition-fast: 0.15s $ease-out;
+$transition-normal: 0.3s $ease-out;
+$transition-theme: 0.4s $ease-in-out; // Более тягучий для смены темы
+
+/* ========================================================================== */
+/* 🔤 Typography Scale                                                        */
+/* ========================================================================== */
 $font-xs: rem(12);
 $font-sm: rem(14);
 $font-md: rem(16);
-$font-lg: rem(20);
-$font-xl: rem(24);
-$font-2xl: rem(32);
-$font-3xl: rem(40);
+$font-lg: rem(18);
+$font-xl: rem(22);
+$font-2xl: rem(28);
+$font-3xl: rem(38);
 
-/* ========================= */
-/* 📏 Spacing System */
-/* ========================= */
-
+/* ========================================================================== */
+/* 📏 Spacing System & Radii                                                  */
+/* ========================================================================== */
 $space-1: rem(4);
 $space-2: rem(8);
 $space-3: rem(12);
@@ -46,20 +73,15 @@ $space-5: rem(24);
 $space-6: rem(32);
 $space-7: rem(48);
 
-/* ========================= */
-/* 🔲 Radius System */
-/* ========================= */
-
-$radius-sm: rem(4);
-$radius-md: rem(8);
+$radius-sm: rem(6); // Слегка увеличил скругления, как в современном вебе
+$radius-md: rem(10);
 $radius-lg: rem(16);
 $radius-xl: rem(24);
 $radius-pill: 999px;
 
-/* ========================= */
-/* 📐 Breakpoints */
-/* ========================= */
-
+/* ========================================================================== */
+/* 📐 Breakpoints                                                             */
+/* ========================================================================== */
 $bp-sm: rem(480);
 $bp-md: rem(768);
 $bp-lg: rem(1024);

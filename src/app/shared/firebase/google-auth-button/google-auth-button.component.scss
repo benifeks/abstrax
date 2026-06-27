@@ -1,6 +1,16 @@
+@use "functions" as *;
 @use "variables" as *;
 @use "mixins" as *;
 
 .google-auth__btn {
-  @include button($primary);
+  @include button;
+
+  // Специальное безопасное микровзаимодействие для кнопки выхода
+  &.--logout {
+    &:hover {
+      background: $error;
+      border-color: $error;
+      box-shadow: 0 rem(4) rem(12) color-mix(in srgb, $error 25%, transparent);
+    }
+  }
 }
