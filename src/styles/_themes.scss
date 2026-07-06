@@ -1,70 +1,91 @@
 @use "sass:color";
 
-/* ========================= */
-/* 🌞 LIGHT — Digital Canvas */
-/* ========================= */
-
+/* ========================================================================== */
+/* 🌞 LIGHT — Digital Canvas (Чистый, воздушный, как обновленный Stripe)      */
+/* ========================================================================== */
 .light-theme {
   --bg: #f6f7fb;
   --text: #1e1f26;
+  --text-muted: #697386; // Фирменный страйповский серый
 
-  --primary: #6c5ce7; // soft indigo-violet
-  --primary-dark: #4834d4;
+  --primary: #635bff; // Обновил до актуального Indigo от Stripe
+  --primary-dark: #0a2540;
 
-  --accent: #c7f464; // electric lime
-  --accent-dark: #9cd62e;
+  --accent: #7a63ff;
+  --accent-dark: #635bff;
 
-  --gray-light: #e4e6f0;
-  --gray-normal: #8f92a6;
+  // Стекло и контейнеры
+  --card-bg: rgba(255, 255, 255, 0.75);
+  --card-border: rgba(60, 66, 87, 0.12);
+  --surface: #ffffff;
+  --gray-light: #f7f8f9;
 
-  --error: #ff4d6d;
-  --success: #2ed573;
+  --error: #df1b41;
+  --success: #00d46e;
 
-  --shadow-color: rgba(50, 50, 93, 0.08);
+  // Дорогая многослойная тень Stripe
+  --shadow-sm: 0 2px 5px rgba(50, 50, 93, 0.03), 0 1px 1px rgba(0, 0, 0, 0.03);
+  --shadow-md: 0 7px 14px rgba(50, 50, 93, 0.06), 0 3px 6px rgba(0, 0, 0, 0.08);
+  --shadow-lg:
+    0 15px 35px rgba(50, 50, 93, 0.06), 0 5px 15px rgba(0, 0, 0, 0.08);
 }
 
-/* ========================= */
-/* 🌙 DARK — Deep Lab */
-/* ========================= */
-
+/* ========================================================================== */
+/* 🌙 DARK — Deep Lab (Космический, матовый, с неоновыми границами)          */
+/* ========================================================================== */
 .dark-theme {
-  --bg: #0f111a;
-  --text: #e6e6f0;
+  --bg: #0a2540; // Глубокий темно-синий базис Stripe
+  --text: #f6f9fc;
+  --text-muted: #adbdcc;
 
-  --primary: #8c7dff; // electric violet
-  --primary-dark: #5a4fff;
+  --primary: #8075ff;
+  --primary-dark: #635bff;
 
-  --accent: #00f5d4; // neon cyan
-  --accent-dark: #00c2a8;
+  --accent: #00d46e;
+  --accent-dark: #00b861;
 
-  --gray-light: #1c1f2b;
-  --gray-normal: #8a8fa3;
+  // Стекло и контейнеры
+  --card-bg: rgba(15, 23, 42, 0.65);
+  --card-border: rgba(255, 255, 255, 0.08);
+  --surface: #102a43;
+  --gray-light: #173351;
 
-  --error: #ff6b81;
-  --success: #3ae374;
+  --error: #ff5c7c;
+  --success: #00f5d4;
 
-  --shadow-color: rgba(0, 0, 0, 0.6);
+  // Мягкие глубокие тени для темной темы
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 10px 20px rgba(0, 0, 0, 0.5), 0 3px 6px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.6), 0 15px 25px rgba(0, 0, 0, 0.5);
 }
 
-/* ========================= */
-/* 🧬 SYNTH — Neural Playground */
-/* ========================= */
-
+/* ========================================================================== */
+/* 🧬 SYNTH — Neural Playground (Взрывной, светящийся киберпанк)            */
+/* ========================================================================== */
 .synth-theme {
-  --bg: #1a002b;
+  --bg: #120024;
   --text: #f5e9ff;
+  --text-muted: #bda2eb;
 
-  --primary: #ff00c8; // neon magenta
-  --primary-dark: #c3009b;
+  --primary: #ff00c8; // Neon Magenta
+  --primary-dark: #bd0094;
 
-  --accent: #00ffe1; // hyper cyan
-  --accent-dark: #00cbb5;
+  --accent: #00ffe1; // Hyper Cyan
+  --accent-dark: #00bda6;
 
-  --gray-light: #2a0144;
-  --gray-normal: #a084ca;
+  // Стекло со светящимся фиолетовым бордером
+  --card-bg: rgba(26, 0, 43, 0.5);
+  --card-border: rgba(255, 0, 200, 0.2);
+  --surface: #250044;
+  --gray-light: #310158;
 
   --error: #ff3c78;
   --success: #00ff95;
 
-  --shadow-color: rgba(255, 0, 200, 0.25);
+  // Тени со свечением (Glow-эффект)
+  --shadow-sm: 0 2px 8px rgba(255, 0, 200, 0.15);
+  --shadow-md:
+    0 8px 20px rgba(255, 0, 200, 0.2), 0 0 10px rgba(0, 255, 225, 0.1);
+  --shadow-lg:
+    0 15px 35px rgba(255, 0, 200, 0.3), 0 0 25px rgba(0, 255, 225, 0.2);
 }

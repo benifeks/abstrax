@@ -2,7 +2,8 @@
 @use "functions" as *;
 @use "variables" as *;
 
-@mixin button($bg-color, $text-color: $bg, $radius: $radius-md) {
+// Обновленный миксин под физику Stripe
+@mixin button($radius: $radius-md) {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -11,20 +12,31 @@
   padding: $space-2 $space-4;
   border-radius: $radius;
 
-  font-size: $font-md;
+  font-size: $font-sm; // Сделаем сервисные кнопки чуть компактнее
   font-weight: 500;
+  cursor: pointer;
 
-  background: $bg-color;
-  color: $text-color;
+  // По умолчанию кнопка прозрачная с границей
+  background: transparent;
+  color: $primary;
+  border: rem(1) solid $primary;
 
+  // Используем наш дорогой фирменный транзишн
   transition:
-    background 0.2s ease,
-    transform 0.15s ease,
-    box-shadow 0.2s ease;
+    background-color $transition-fast,
+    color $transition-fast,
+    border-color $transition-fast,
+    transform $transition-fast,
+    box-shadow $transition-fast;
 
   &:hover {
-    transform: translateY(rem(-1));
-    box-shadow: 0 0 rem(12) $bg-color;
+    background: $accent;
+    color: $bg; // Текст инвертируется под цвет фона темы
+    border-color: $accent;
+    transform: translateY(rem(-1)); // Легкий физический подъем
+
+    // Мягкое свечение вокруг кнопки при ховере
+    box-shadow: 0 rem(4) rem(12) color-mix(in srgb, $accent 25%, transparent);
   }
 
   &:active {
@@ -32,7 +44,9 @@
   }
 
   &:disabled {
-    opacity: 0.6;
+    opacity: 0.5;
     cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
   }
 }

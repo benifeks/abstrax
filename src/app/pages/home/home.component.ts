@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { AbstractBgComponent } from '../../components/abstract-bg/abstract-bg.component';
-import { AbstractViewerComponent } from '../../components/abstract-viewer/abstract-viewer.component';
 import { AddDocumentComponent } from '../../shared/firebase/add-document/add-document.component';
 import { AuthStatusComponent } from '../../shared/firebase/auth-status/auth-status.component';
+
+import { SandboxShowcaseComponent } from './home-sections/sandbox-showcase/sandbox-showcase.component';
+import { WelcomeHeroComponent } from './home-sections/welcome-hero/welcome-hero.component';
 
 @Component({
   selector: 'app-home',
@@ -10,12 +11,10 @@ import { AuthStatusComponent } from '../../shared/firebase/auth-status/auth-stat
   imports: [
     AddDocumentComponent,
     AuthStatusComponent,
-    AbstractViewerComponent,
-    AbstractBgComponent,
+    WelcomeHeroComponent,
+    SandboxShowcaseComponent,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
-export class HomeComponent {
-  public readonly testItems = Array.from({ length: 30 }, (_, i) => i + 1);
-}
+export class HomeComponent {}

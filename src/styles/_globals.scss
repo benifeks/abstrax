@@ -3,10 +3,9 @@
 @use "variables" as *;
 @use "mixins" as *;
 
-/* ========================= */
-/* Reset */
-/* ========================= */
-
+/* ========================================================================== */
+/* 1. Reset & Base Settings                                                   */
+/* ========================================================================== */
 *,
 *::before,
 *::after {
@@ -19,39 +18,63 @@
 html {
   font-size: 100%;
   scroll-behavior: smooth;
+  height: 100%;
 }
 
 body {
   font-family: "Ubuntu", sans-serif;
-  background: $bg;
+  background-color: $bg;
   color: $text;
   min-height: 100%;
   line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  // Применяем наш мягкий тягучий транзишн для смены всей темы
   transition:
-    background 0.3s ease,
-    color 0.3s ease;
+    background-color $transition-theme,
+    color $transition-theme;
 }
 
-/* ========================= */
-/* Typography */
-/* ========================= */
-
+/* ========================================================================== */
+/* 2. Typography                                                              */
+/* ========================================================================== */
 h1,
 h2,
-h3 {
+h3,
+h4 {
   text-align: center;
+  color: $text;
+  line-height: 1.2;
+  transition: color $transition-theme;
+}
+
+h1,
+h2 {
   font-weight: 600;
 }
 
-h3 {
+h1 {
+  font-size: $font-3xl;
+}
+h2 {
+  font-size: $font-2xl;
+}
+
+// Наш акцентный рукописный подзаголовок (Neucha)
+h3,
+.font-accent {
   font-family: "Neucha", sans-serif;
+  font-size: $font-xl;
+  font-weight: 400; // Спасаем шрифт Neucha от браузерного размытия (faux-bold)
   letter-spacing: 0.05em;
 }
 
-/* ========================= */
-/* Layout */
+/* ========================================================================== */
+/* 3. Layout Infrastructure                                                   */
+/* ========================================================================== */
 main {
-  padding-top: rem(80); // место под фиксированный header
+  padding-top: rem(80); // Место под фиксированный header
 }
 
 .container {
@@ -59,43 +82,45 @@ main {
   margin-inline: auto;
 }
 
-/* ========================= */
-/* Header */
+/* ========================================================================== */
+/* 4. Premium Header (Эффект стекла Stripe)                                  */
+/* ========================================================================== */
 header {
   position: fixed;
   width: 100%;
   top: 0;
   z-index: 1000;
+
+  // Размытие заднего плана
   backdrop-filter: blur(rem(12));
-  background: color-mix(in srgb, $bg 80%, transparent);
-  border-bottom: rem(1) solid $surface;
+  -webkit-backdrop-filter: blur(rem(12));
+
+  // Смешиваем текущий фоновый цвет темы с прозрачностью 85%
+  background: color-mix(in srgb, $bg 85%, transparent);
+  border-bottom: rem(1) solid $card-border;
+
+  transition:
+    background-color $transition-theme,
+    border-color $transition-theme;
 }
 
-/* ========================= */
-/* Selection */
+/* ========================================================================== */
+/* 5. Interactive & Global Components                                         */
+/* ========================================================================== */
 ::selection {
   background: $primary;
-  color: $text;
+  color: #ffffff;
 }
-
-/* ========================= */
-/* Smooth transitions for theme */
-* {
-  transition:
-    background-color 0.2s ease,
-    border-color 0.2s ease,
-    color 0.2s ease;
-}
-
-/* ========================= */
-/* Interactive elements */
-/* ========================= */
 
 a {
   text-decoration: none;
   color: inherit;
   cursor: pointer;
-  transition: color 0.2s ease;
+  transition: color $transition-fast;
+
+  &:hover {
+    color: $primary;
+  }
 }
 
 button {
@@ -103,6 +128,7 @@ button {
   border: none;
   background: none;
   font: inherit;
+  color: inherit;
 }
 
 [role="button"] {

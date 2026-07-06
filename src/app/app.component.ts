@@ -4,10 +4,17 @@ import { AuthService } from '../../src/app/shared/firebase/auth.service';
 
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
+import { OverlayContainerComponent } from './shared/ui/overlay-container/overlay-container.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, FooterComponent, HeaderComponent],
+  standalone: true,
+  imports: [
+    RouterOutlet,
+    FooterComponent,
+    HeaderComponent,
+    OverlayContainerComponent,
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })

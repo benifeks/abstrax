@@ -1,0 +1,25 @@
+<section class="welcome-hero" id="auth">
+  <div class="hero-content">
+    <h1 class="hero-title">Интерфейсы нового поколения</h1>
+    <p class="hero-subtitle">
+      Модульная песочница для экспериментов с Firebase, Picsum API и
+      ультимативным Synth-дизайном.
+    </p>
+
+    @if (!authService.appUser()) {
+      <button
+        type="button"
+        class="hero-btn"
+        (click)="overlayService.open('auth')"
+      >
+        Начать путешествие
+      </button>
+    } @else {
+      <p class="hero-welcome">
+        Рады возвращению,
+        {{ authService.appUser()?.displayName?.split(" ")?.[0] ?? "user" }}!
+        Спускайся к модулям. ↓
+      </p>
+    }
+  </div>
+</section>

@@ -1,0 +1,36 @@
+<div class="art-visual-container">
+  <div class="art-frame">
+    @if (state.isLoading()) {
+      <div class="art-loader">
+        <div class="spinner"></div>
+        <span>Ищем визуальный образ в хаосе...</span>
+      </div>
+    } @else if (state.currentUrl()) {
+      <img
+        [src]="state.currentUrl()"
+        [alt]="'Picsum ID: ' + state.currentId()"
+        class="art-image"
+      />
+      <div class="art-badge">ID: {{ state.currentId() }}</div>
+    } @else {
+      <div class="art-placeholder">
+        <p>Визуальный слой пуст. Нажмите кнопку, чтобы запустить генератор.</p>
+      </div>
+    }
+  </div>
+
+  <div class="art-actions">
+    <button
+      type="button"
+      class="generate-btn"
+      [disabled]="state.isLoading()"
+      (click)="state.generateRandomVisual(500, 375)"
+    >
+      @if (state.isLoading()) {
+        Генерация...
+      } @else {
+        Сгенерировать визуал 🎲
+      }
+    </button>
+  </div>
+</div>

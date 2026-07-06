@@ -1,0 +1,12 @@
+@use "functions" as *;
+@use "variables" as *;
+@use "mixins" as *;
+@use "home-sections" as *;
+
+.sandbox-showcase {
+  @extend .home-section;
+}
+
+.overlay-button {
+  @include button;
+}

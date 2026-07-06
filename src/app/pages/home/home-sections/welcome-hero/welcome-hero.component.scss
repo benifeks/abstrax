@@ -1,0 +1,28 @@
+@use "functions" as *;
+@use "variables" as *;
+@use "home-sections" as *;
+
+.welcome-hero {
+  @extend .home-section;
+  padding: $space-7 0;
+
+  .hero-title {
+    font-size: $font-3xl; // Поставил самый сочный размер из твоей шкалы!
+    color: $primary;
+    letter-spacing: -0.02em;
+    margin-bottom: $space-3;
+  }
+
+  .hero-subtitle {
+    font-size: $font-md;
+    color: $muted;
+    max-width: rem(600);
+    margin: 0 auto $space-5;
+  }
+
+  .hero-welcome {
+    font-size: $font-sm;
+    color: $text;
+    font-weight: 500;
+  }
+}

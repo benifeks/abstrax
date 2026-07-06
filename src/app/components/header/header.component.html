@@ -1,44 +1,49 @@
 <!-- src/app/components/header/header.component.html -->
 <header class="abstrax-header">
-  <div class="header-left">
-    <a class="logo" routerLink="/">Abstrax</a>
-  </div>
+  <div class="header-inner container">
+    <div class="header-left">
+      <a class="logo" routerLink="/">Abstrax</a>
+    </div>
 
-  <nav class="header-center">
-    <a routerLink="/" fragment="auth">auth</a>
-    <a routerLink="/" fragment="add">add</a>
-    <a routerLink="/" fragment="abstract-viewer">abstract-viewer</a>
-    <a routerLink="/" fragment="test-2">test-2</a>
-    <a routerLink="/" fragment="test-3">test-3</a>
-  </nav>
+    <nav class="header-center">
+      <a class="nav-link" routerLink="/" fragment="welcome">welcome</a>
+      <a class="nav-link" routerLink="/" fragment="sandbox-showcase">sandbox</a>
+    </nav>
 
-  <div class="header-right">
-    <!-- Соцсети -->
-    <a
-      href="https://t.me/benifeks"
-      target="_blank"
-      aria-label="Telegram"
-      rel="noopener noreferrer"
-    >
-      <svg class="social-icon">
-        <use [attr.href]="spritePath + 'telegram'" />
-      </svg>
-    </a>
-    <a
-      href="https://facebook.com/skurko.sergej.2025/"
-      target="_blank"
-      aria-label="Facebook"
-      rel="noopener noreferrer"
-    >
-      <svg class="social-icon">
-        <use [attr.href]="spritePath + 'facebook'" />
-      </svg>
-    </a>
+    <div class="header-right">
+      <!-- Соцсети -->
+      <div class="social-links">
+        <a
+          href="https://t.me/benifeks"
+          target="_blank"
+          aria-label="Telegram"
+          rel="noopener noreferrer"
+          class="social-link"
+        >
+          <svg class="social-icon">
+            <use [attr.href]="spritePath + 'telegram'" />
+          </svg>
+        </a>
+        <a
+          href="https://facebook.com/skurko.sergej.2025/"
+          target="_blank"
+          aria-label="Facebook"
+          rel="noopener noreferrer"
+          class="social-link"
+        >
+          <svg class="social-icon">
+            <use [attr.href]="spritePath + 'facebook'" />
+          </svg>
+        </a>
+      </div>
 
-    <!-- Theme toggle -->
-    <app-theme-toggle></app-theme-toggle>
+      <div class="divider"></div>
 
-    <!-- Google Auth -->
-    <app-google-auth-button></app-google-auth-button>
+      <!-- Контролы интерфейса -->
+      <div class="controls">
+        <app-theme-toggle></app-theme-toggle>
+        <app-google-auth-button></app-google-auth-button>
+      </div>
+    </div>
   </div>
 </header>
